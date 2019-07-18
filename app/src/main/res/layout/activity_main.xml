@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:title="MainMenu"
+        app:titleTextColor="@color/colorAccent" />
+
+
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/getdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textSize="50dp" />
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/gettime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/getdate"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:text=""
+            android:textSize="50dp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/btnlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gettime"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/setdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Show date"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/settime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Show Time"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"/>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/btnlayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/images2"/>
+
+    <Button
+        android:id="@+id/changeImgId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Change Image"/>
+
+    <Button
+        android:id="@+id/context_menu"
+        android:layout_below="@id/changeImgId"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Context menu"
+        />
+
+
+</RelativeLayout>

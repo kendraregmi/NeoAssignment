@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.Calendar;
 import java.util.List;
 
+import np.com.kendraregmi.neoassignment.Adapter.SpinnerAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -33,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView image2;
     Button changeImage;
     Button context_menu;
+
+    Spinner dynamicSpinner;
+
     boolean image_change_counter = true;
+
+
 
 
 
@@ -54,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
         context_menu = findViewById(R.id.context_menu);
         registerForContextMenu(context_menu);
         registerForContextMenu(changeImage);
+        dynamicSpinner=findViewById(R.id.spinner1);
+
+        String[] countryNames= {"Nepal", "India", "Pakistan", "China"};
+        int[] flags={R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+        SpinnerAdapter spinnerAdapter= new SpinnerAdapter(this, flags, countryNames);
+        dynamicSpinner.setAdapter(spinnerAdapter);
 
 
         changeImage.setOnClickListener(new View.OnClickListener() {

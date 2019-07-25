@@ -2,7 +2,9 @@ package np.com.kendraregmi.neoassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,12 +22,19 @@ public class LoginActivity extends AppCompatActivity {
     TextView dont_have_account;
     TextView incorrect_message;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences sharedPreferences= getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        if(sharedPreferences.getBoolean("isLoggedIn", false)){
 
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
         uiLinking();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +73,11 @@ public class LoginActivity extends AppCompatActivity {
     private void validateLogin(String login_username, String login_password) {
 
         if (login_username.equals("kendra") && login_password.equals("kendra123")){
+
+            SharedPreferences sharedPreferences1= getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor1= sharedPreferences1.edit();
+            editor1.putBoolean("isLoggedIn", true);
+            editor1.apply();
             Toast.makeText(LoginActivity.this, "login Successful", Toast.LENGTH_SHORT).show();
             Intent dashboardIntent= new Intent(LoginActivity.this, MainActivity.class);
             startActivity(dashboardIntent);

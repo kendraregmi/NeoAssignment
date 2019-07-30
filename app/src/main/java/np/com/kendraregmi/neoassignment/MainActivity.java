@@ -12,10 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +30,7 @@ import java.util.List;
 
 import np.com.kendraregmi.neoassignment.Adapter.SpinnerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     Toolbar toolbar;
     TextView getdate;
@@ -35,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
     Button showtime;
     ImageView image2;
     Button changeImage;
-    Button context_menu;
+    Button context_menu, popupMenu, checkSwitch;
 
     Spinner dynamicSpinner;
 
     boolean image_change_counter = true;
+    ToggleButton toggleButton;
+    Switch aSwitch;
 
 
 
@@ -63,6 +69,20 @@ public class MainActivity extends AppCompatActivity {
         registerForContextMenu(context_menu);
         registerForContextMenu(changeImage);
         dynamicSpinner=findViewById(R.id.spinner1);
+        popupMenu= findViewById(R.id.popupMenu);
+        toggleButton= findViewById(R.id.toggleBtn);
+        aSwitch= findViewById(R.id.switch_fine);
+        checkSwitch= findViewById(R.id.check_switch);
+
+        popupMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu= new PopupMenu(MainActivity.this, view);
+                popupMenu.setOnMenuItemClickListener(MainActivity.this);
+                popupMenu.inflate(R.menu.popup_menu);
+                popupMenu.show();
+            }
+        });
 
         String[] countryNames= {"Nepal", "India", "Pakistan", "China"};
         int[] flags={R.mipmap.ic_launcher, R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
@@ -200,5 +220,19 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog= builder.create();
         alertDialog.setTitle("Confirmation");
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        Toast.makeText(this, "Selected Item:"+menuItem.getItemId(), Toast.LENGTH_SHORT).show();
+
+        return false;
+    }
+
+    public void checkSwitchToggle(View view){
+        Boolean toggle= toggleButton.isChecked();
+        boolean switchIs= aSwitch.isChecked();
+        Toast.makeText(this, "Toggle: "+toggle+" >> "+switchIs, Toast.LENGTH_SHORT).show();
+
     }
 }

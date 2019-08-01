@@ -82,8 +82,8 @@
         android:layout_below="@id/image_2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Change Image"
-        android:background="@drawable/default_button"/>
+        android:background="@drawable/default_button"
+        android:text="Change Image" />
 
     <Button
         android:id="@+id/context_menu"
@@ -91,46 +91,52 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/changeImgId"
         android:layout_centerHorizontal="true"
-        android:text="Show Context menu"
         android:elevation="10dp"
-        android:translationZ="6dp"/>
+        android:text="Show Context menu"
+        android:translationZ="6dp" />
 
     <Spinner
+        android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner1"
-        android:layout_below="@id/context_menu"/>
+        android:layout_below="@id/context_menu" />
 
     <Button
-        android:layout_below="@id/context_menu"
+        android:id="@+id/popupMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/popupMenu"
+        android:layout_below="@id/context_menu"
         android:layout_centerHorizontal="true"
-        android:text="Popup Menu"/>
+        android:text="Popup Menu" />
+
     <ToggleButton
-        android:layout_below="@id/popupMenu"
         android:id="@+id/toggleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Toggle Button"/>
+        android:layout_below="@id/popupMenu"
+        android:text="Toggle Button" />
 
     <Switch
-        android:layout_below="@id/toggleBtn"
         android:id="@+id/switch_fine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toggleBtn"
         android:text="Fine?"
-        android:theme="@style/SwitchTheme"/>
+        android:theme="@style/SwitchTheme" />
 
     <Button
         android:id="@+id/check_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="check switch"
-        android:onClick="checkSwitchToggle"/>
+        android:onClick="checkSwitchToggle"
+        android:text="check switch" />
 
-
+    <ImageButton
+        android:id="@+id/imageBTN"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/check_switch"
+        android:src="@drawable/images2" />
 
 
 </RelativeLayout>

@@ -2,7 +2,7 @@
     <string name="app_name">NeoAssignment</string>
 
     <string-array name="countryList">
-        <item > Nepal</item>
+        <item> Nepal</item>
         <item> USA</item>
         <item>UK</item>
         <item>Pakistan</item>
